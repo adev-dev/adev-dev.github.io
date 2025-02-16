@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", scrollTrigger: section }
         );
     });
+    
 
     // Hover effect on projects
     document.querySelectorAll(".project").forEach(project => {
@@ -14,6 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         project.addEventListener("mouseleave", () => {
             gsap.to(project, { scale: 1, duration: 0.3 });
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".project").forEach(function (project) {
+        project.addEventListener("click", function () {
+            const url = this.getAttribute("data-link");
+            if (url) {
+                window.location.href = url;
+            }
         });
     });
 });
